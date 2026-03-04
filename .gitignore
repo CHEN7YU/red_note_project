@@ -24,9 +24,12 @@ Thumbs.db
 
 # Cache & temp
 .cache/
-output/videos/downloads/
-output/_*.txt
 *.tmp
+
+# Generated output (regenerate with: python -m pipeline daily)
+output/*/
+output/*.md
+output/_*.txt
 
 # Secrets (never commit)
 .env
