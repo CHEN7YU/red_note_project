@@ -73,7 +73,64 @@ def download_reddit_media(post: dict, output_dir: str) -> list[str]:
                 print(f"    📥 下载 OG 图片: {Path(filepath).name}")
 
     if not downloaded:
-        print(f"    ℹ️ 无可下载的媒体素材")
+        print(f"    ℹ️ 无原帖媒体素材")
+
+    return downloaded
+
+
+def search_related_images(query: str, output_dir: str, count: int = 5) -> list[str]:
+    """
+    通过 Google Images 搜索与话题相关的图片并下载。
+    用于纯文本帖子，找到别人已做过的相似主题图片作为素材参考。
+    """
+    os.makedirs(output_dir, exist_ok=True)
+    downloaded = []
+
+    g_url = f"https://www.google.com/search?q={query.replace(' ', '+')}&tbm=isch"
+    try:
+        with httpx.Client(timeout=15, follow_redirects=True) as client:
+            r = client.get(g_url, headers={
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+                "Accept-Language": "en-US,en;q=0.9",
+            })
+            if r.status_code != 200:
+                print(f"    ⚠️ Google Images 搜索失败: {r.status_code}")
+                return []
+
+            # 从 Google Images HTML 提取图片 URL
+            # Google 在 HTML 中嵌入 ["https://xxx.jpg",width,height] 格式
+            img_urls = re.findall(r'\["(https?://[^"]+)",\d+,\d+\]', r.text)
+            # 过滤掉 Google 自己的域名
+            skip_domains = ['google.com', 'gstatic.com', 'googleapis.com', 'youtube.com', 'schema.org', 'w3.org']
+            real_imgs = [u for u in img_urls if not any(d in u for d in skip_domains)]
+
+            # 去重
+            seen = set()
+            unique = []
+            for u in real_imgs:
+                # 处理 unicode 转义
+                u = u.replace('\\u003d', '=').replace('\\u0026', '&')
+                short = u.split('?')[0]
+                if short not in seen:
+                    seen.add(short)
+                    unique.append(u)
+
+            for i, img_url in enumerate(unique[:count]):
+                ext = ".jpg"
+                for e in [".png", ".webp", ".jpeg", ".gif"]:
+                    if e in img_url.lower().split('?')[0]:
+                        ext = e
+                        break
+                filepath = os.path.join(output_dir, f"ref_{i+1}{ext}")
+                if _download_file(img_url, filepath):
+                    downloaded.append(filepath)
+                    print(f"    🔍 参考图: ref_{i+1}{ext}")
+
+    except Exception as e:
+        print(f"    ⚠️ 图片搜索失败: {str(e)[:60]}")
+
+    if not downloaded:
+        print(f"    ℹ️ 未找到相关图片")
 
     return downloaded
 

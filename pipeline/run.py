@@ -185,7 +185,7 @@ def cmd_daily():
         print("  ⚠️ Azure Speech SDK 未安装，降级到 edge-tts")
         use_clone = False
 
-    from .media_downloader import download_reddit_media
+    from .media_downloader import download_reddit_media, search_related_images
 
     for i, item in enumerate(results, 1):
         topic_dir = day_dir / f"topic_{i}"
@@ -199,6 +199,14 @@ def cmd_daily():
         media_dir.mkdir(exist_ok=True)
         print(f"  📥 下载素材...")
         media_files = download_reddit_media(item["original"], str(media_dir))
+
+        # 如果原帖无素材(纯文本帖), 在网上搜索相似主题的图片
+        if not media_files:
+            title = item["original"].get("title", "")
+            # 用原帖英文标题搜索相关图片
+            print(f"  🔍 搜索相关图片...")
+            media_files = search_related_images(title, str(media_dir), count=5)
+
         item["media_files"] = media_files
 
         # -- 小红书图文 --
