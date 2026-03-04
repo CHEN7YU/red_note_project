@@ -33,6 +33,9 @@ LLM_MODEL_LIGHT = os.getenv("LLM_MODEL_LIGHT", "gpt-4-1-nano")   # 分类评分
 # ── Reddit API ──────────────────────────────────────────────
 REDDIT_USER_AGENT = "InfoGapBot/1.0 (by u/your_reddit_username)"
 
+# ── YouTube Data API v3 ────────────────────────────────────
+YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY", "")
+
 # ── FFmpeg ──────────────────────────────────────────────────
 FFMPEG_BIN = os.getenv("FFMPEG_BIN", "ffmpeg")
 FFPROBE_BIN = os.getenv("FFPROBE_BIN", "ffprobe")

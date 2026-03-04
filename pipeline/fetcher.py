@@ -488,43 +488,62 @@ def fetch_tiktok_trending() -> list[dict]:
 # ── YouTube 趋势 ───────────────────────────────────────────
 
 def fetch_youtube_trending() -> list[dict]:
-    """抓取 YouTube 热门视频"""
-    # YouTube RSS trending feed
-    rss_url = "https://www.youtube.com/feed/trending?gl=US"
-    html = _http_get(rss_url)
+    """抓取 YouTube 热门视频 + Shorts（优先 YouTube Data API v3，无 key 则跳过）"""
+    from .config import YOUTUBE_API_KEY
+
     topics = []
 
-    if html:
-        # 提取视频标题 - YouTube 页面中嵌入 JSON
-        matches = re.findall(r'"title":\{"runs":\[\{"text":"([^"]{5,})"\}', html)
-        if not matches:
-            matches = re.findall(r'"title":\{"simpleText":"([^"]{5,})"', html)
-        if not matches:
-            matches = re.findall(r'"text":"([^"]{10,80})"', html)
-            # 去重并取前 30
-            seen = set()
-            unique = []
-            for m in matches:
-                if m not in seen and not m.startswith("http") and not m.startswith("{"):
-                    seen.add(m)
-                    unique.append(m)
-            matches = unique
+    if YOUTUBE_API_KEY:
+        # 用官方 API 抓 Most Popular videos
+        for video_category in ["0", "28", "24"]:  # 0=全部, 28=科技, 24=娱乐
+            api_url = (
+                f"https://www.googleapis.com/youtube/v3/videos"
+                f"?part=snippet,statistics&chart=mostPopular"
+                f"&regionCode=US&maxResults=15"
+                f"&videoCategoryId={video_category}"
+                f"&key={YOUTUBE_API_KEY}"
+            )
+            data = _http_get_json(api_url)
+            if data and "items" in data:
+                for item in data["items"]:
+                    snippet = item.get("snippet", {})
+                    stats = item.get("statistics", {})
+                    title = snippet.get("title", "")
+                    views = int(stats.get("viewCount", 0))
+                    vid = item.get("id", "")
+                    # 检查是否是 Short (描述或标签含 #Shorts)
+                    desc = snippet.get("description", "")
+                    tags = snippet.get("tags", [])
+                    is_short = "#shorts" in desc.lower() or "#shorts" in " ".join(tags).lower()
 
-        for i, title in enumerate(matches[:30]):
-            topics.append({
-                "title": title.strip(),
-                "heat": 30 - i,
-                "url": "",
-                "platform": "youtube",
-                "language": "en",
-            })
+                    if title and len(title) > 5:
+                        topics.append({
+                            "title": title,
+                            "heat": round(views / 10000, 1),
+                            "url": f"https://www.youtube.com/watch?v={vid}",
+                            "platform": "youtube_shorts" if is_short else "youtube",
+                            "language": "en",
+                            "category": snippet.get("categoryId", ""),
+                            "is_short": is_short,
+                        })
+            time.sleep(0.3)
+
+        # 去重
+        seen = set()
+        deduped = []
+        for t in topics:
+            if t["title"] not in seen:
+                seen.add(t["title"])
+                deduped.append(t)
+        topics = deduped
 
     if not topics:
+        # 无 API key 时 fallback
         topics = _parse_tophub_page("https://tophub.today/n/74KvxwDkxM", "youtube")
 
     for t in topics:
         t["language"] = "en"
-    print(f"  ✅ YouTube: 抓取 {len(topics)} 条")
+    print(f"  ✅ YouTube: 抓取 {len(topics)} 条" + (f" (含Shorts)" if any(t.get("is_short") for t in topics) else ""))
     if topics:
         _save_cache("youtube", topics)
     return topics
