@@ -123,16 +123,28 @@ TRACKS = {
     },
     "lifestyle": {
         "west_subreddits": [
-            "LifeProTips", "productivity", "selfimprovement", "getdisciplined",
-            "Damnthatsinteresting", "coolguides", "todayilearned",
-            "explainlikeimfive", "YouShouldKnow", "lifehacks",
-            "MealPrepSunday", "minimalism", "financialindependence",
+            # 核心：生活技巧
+            "LifeProTips", "lifehacks", "YouShouldKnow", "coolguides",
+            # 效率/自律
+            "productivity", "selfimprovement", "getdisciplined", "DecidingToBeBetter",
+            # 冷知识/涨见识
+            "Damnthatsinteresting", "todayilearned", "explainlikeimfive", "interestingasfuck",
+            # 省钱/理财
+            "Frugal", "povertyfinance", "BuyItForLife",
+            # 心理/关系
+            "socialskills", "confidence", "dating_advice",
+            # 健康
+            "loseit", "bodyweightfitness", "sleep",
+            # 极简/整理
+            "minimalism", "declutter", "organizing",
         ],
         "west_keywords": [
-            "productivity", "habit", "morning routine", "life hack", "mindset",
-            "budget", "save money", "minimalist", "mental health", "workout",
-            "diet", "sleep", "meditation", "journal", "side hustle",
-            "til", "cool guide", "interesting", "you should know",
+            "life pro tip", "lpt", "life hack", "you should know", "til",
+            "productivity", "habit", "morning routine", "mindset", "discipline",
+            "budget", "save money", "minimalist", "mental health",
+            "workout", "diet", "sleep", "meditation", "journal",
+            "side hustle", "cool guide", "interesting", "social skill",
+            "confidence", "relationship", "organize", "declutter",
         ],
         "china_keywords": [
             "效率", "自律", "成长", "情绪", "心理", "生活方式", "早起",

@@ -3,11 +3,13 @@ pipeline/run.py
 ===============
 主入口：编排完整管线。
 用法:
-    python -m pipeline.run fetch          # 仅抓取热点
-    python -m pipeline.run score          # 抓取 + LLM 评分
-    python -m pipeline.run translate      # 抓取 + 评分 + 翻译改写    python -m pipeline matrix         # 全赛道双向矩阵 (EN→CN + CN→EN × 4赛道 × Top5)    python -m pipeline.run video <url>    # 处理单个视频
-    python -m pipeline.run full           # 完整管线
-    python -m pipeline.run test           # 快速测试各模块
+    python -m pipeline daily             # ⭐ 每日一键生成（拓取+评分+改写+配音）
+    python -m pipeline fetch             # 仅拓取热点
+    python -m pipeline score             # 拓取 + LLM 评分
+    python -m pipeline translate         # 拓取 + 评分 + 翻译改写
+    python -m pipeline matrix            # 全赛道双向矩阵
+    python -m pipeline video <url>       # 处理单个视频
+    python -m pipeline test              # 快速测试各模块
 """
 
 import json
@@ -126,6 +128,128 @@ def cmd_translate(track: str = "tech"):
         json.dump(results, f, ensure_ascii=False, indent=2)
 
     print(f"\n💾 翻译改写结果已保存: {out_file}")
+    return results
+
+
+def cmd_daily():
+    """
+    每日一键生成：专注 lifestyle 赛道
+    1. 抓取 Reddit 生活技巧热帖
+    2. LLM 评分筛选 Top 5
+    3. 翻译改写 → 小红书图文 + 抖音视频脚本
+    4. 生成 TTS 配音
+    5. 输出每日report可直接发布
+    """
+    today = datetime.now().strftime("%Y%m%d")
+    track = "lifestyle"
+
+    print("\n" + "=" * 60)
+    print(f"📅 每日内容生产 ({today}) — 赛道: 海外生活技巧")
+    print("=" * 60)
+
+    # Step 1: 抓取 lifestyle 赛道
+    hotspots = cmd_fetch(track)
+
+    # Step 2: 评分 Top 10 → 取 Top 5
+    all_topics = hotspots.get("west", [])
+    valid = [t for t in all_topics if len(t.get("title", "")) > 15]
+    print(f"\n📊 LLM 评分 ({len(valid)} 条有效)...")
+    scored = batch_score_topics(valid, max_count=15)
+
+    # 只取评分 >= 5 的
+    good = [t for t in scored if t.get("llm_score", {}).get("total_score", 0) >= 5.0]
+    top5 = good[:5]
+
+    if not top5:
+        print("⚠️ 今日无高质量选题（评分均低于5），跳过")
+        return []
+
+    # Step 3: 翻译改写
+    results = []
+    for i, topic in enumerate(top5, 1):
+        title = topic["title"]
+        print(f"\n✍️ [{i}/{len(top5)}] 改写: {title[:50]}...")
+        rewrite = translate_and_rewrite(title, source_lang="en", target_lang="zh")
+        script = generate_video_script(
+            rewrite.get("rewritten_titles", [title])[0],
+            language="zh",
+        )
+        results.append({
+            "original": topic,
+            "rewrite": rewrite,
+            "script": script,
+        })
+
+    # Step 4: 生成 TTS 配音（用你自己的声音 clone）
+    print(f"\n🔊 生成配音（你的声音）...")
+    try:
+        from .tts_azure import tts_clone_voice
+        use_clone = True
+    except ImportError:
+        print("  ⚠️ Azure Speech SDK 未安装，降级到 edge-tts")
+        use_clone = False
+
+    for i, item in enumerate(results, 1):
+        script_text = item["script"].get("full_script", "")
+        if script_text:
+            audio_path = str(OUTPUT_DIR / "audio" / f"daily_{today}_{i}.mp3")
+            if use_clone:
+                ok = tts_clone_voice(script_text, audio_path, "zh")
+                if not ok:
+                    # fallback to edge-tts
+                    text_to_speech(script_text, audio_path, "zh")
+            else:
+                text_to_speech(script_text, audio_path, "zh")
+            item["audio_path"] = audio_path
+
+    # Step 5: 保存结果
+    json_path = DATA_DIR / f"daily_{today}.json"
+    with open(json_path, "w", encoding="utf-8") as f:
+        json.dump(results, f, ensure_ascii=False, indent=2)
+
+    # Step 6: 生成可读 Markdown 报告
+    md_path = OUTPUT_DIR / f"daily_{today}.md"
+    md = [f"# 📅 每日内容 ({today})\n"]
+    md.append(f"> 赛道: 海外生活技巧 | 来源: Reddit | 共 {len(results)} 条\n")
+
+    for i, item in enumerate(results, 1):
+        o = item["original"]
+        r = item.get("rewrite", {})
+        s = item.get("script", {})
+        sc = o.get("llm_score", {})
+
+        md.append(f"---\n")
+        md.append(f"## 选题 {i}: {r.get('rewritten_titles', [''])[0]}\n")
+        md.append(f"**评分:** {sc.get('total_score', '?')} | **原帖:** [{o['title'][:60]}]({o.get('url', '')})\n")
+        md.append(f"**建议角度:** {sc.get('suggested_angle', '')}\n")
+
+        md.append(f"\n### 📱 小红书图文\n")
+        titles = r.get("rewritten_titles", [])
+        md.append(f"**标题（选一个）:**\n")
+        for t in titles:
+            md.append(f"- {t}\n")
+        md.append(f"\n**标签:** {' '.join('#' + t for t in r.get('tags', []))}\n")
+        md.append(f"\n**正文:**\n")
+        md.append(f"```\n{r.get('image_text_content', '')}\n```\n")
+
+        md.append(f"\n### 🎬 抖音视频脚本\n")
+        md.append(f"**开头钩子:** {s.get('hook', '')}\n")
+        md.append(f"\n**正文:** {s.get('body', '')}\n")
+        md.append(f"\n**CTA:** {s.get('cta', '')}\n")
+        if item.get("audio_path"):
+            md.append(f"\n**配音文件:** {item['audio_path']}\n")
+        md.append(f"\n")
+
+    with open(md_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(md))
+
+    print(f"\n{'=' * 60}")
+    print(f"✅ 每日内容生成完成！")
+    print(f"   📄 报告: {md_path}")
+    print(f"   📊 数据: {json_path}")
+    print(f"   🔊 配音: output/audio/daily_{today}_*.mp3")
+    print(f"{'=' * 60}")
+
     return results
 
 
@@ -503,6 +627,8 @@ def main():
 
     if command == "test":
         cmd_test()
+    elif command == "daily":
+        cmd_daily()
     elif command == "fetch":
         cmd_fetch(track)
     elif command == "score":
@@ -513,11 +639,11 @@ def main():
         cmd_matrix()
     elif command == "video":
         if len(args) < 2:
-            print("用法: python -m pipeline.run video <url>")
+            print("用法: python -m pipeline video <url>")
             return
         cmd_video(args[1])
     elif command == "full":
-        cmd_translate(track)
+        cmd_daily()
     else:
         print(f"未知命令: {command}")
         print(__doc__)
