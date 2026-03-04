@@ -8,8 +8,21 @@ pipeline/config.py
 import os
 from pathlib import Path
 
+# ── 加载 .env 文件 ──────────────────────────────────────────
+_root = Path(__file__).resolve().parent.parent
+_env_file = _root / ".env"
+if _env_file.exists():
+    try:
+        for line in open(_env_file, encoding="utf-8"):
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                k, v = line.split("=", 1)
+                os.environ.setdefault(k.strip(), v.strip())
+    except Exception:
+        pass
+
 # ── 项目根目录 ──────────────────────────────────────────────
-ROOT_DIR = Path(__file__).resolve().parent.parent
+ROOT_DIR = _root
 DATA_DIR = ROOT_DIR / "data"
 CACHE_DIR = ROOT_DIR / ".cache"
 OUTPUT_DIR = ROOT_DIR / "output"
