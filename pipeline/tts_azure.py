@@ -15,17 +15,22 @@ from pathlib import Path
 
 from .config import OUTPUT_DIR, AUDIO_DIR
 
-# Try to load .env from the video-language-update project for Speech keys
-_video_proj = Path(__file__).resolve().parent.parent.parent / "video-language-update-cn-en" / ".env"
-if _video_proj.exists():
-    try:
-        for line in open(_video_proj, encoding="utf-8"):
-            line = line.strip()
-            if line and not line.startswith("#") and "=" in line:
-                k, v = line.split("=", 1)
-                os.environ.setdefault(k.strip(), v.strip())
-    except Exception:
-        pass
+# Load .env from current project (or fallback to video-language-update project)
+_env_paths = [
+    Path(__file__).resolve().parent.parent / ".env",  # 当前项目的 .env
+    Path(__file__).resolve().parent.parent.parent / "video-language-update-cn-en" / ".env",  # 旧项目备用
+]
+for _env_path in _env_paths:
+    if _env_path.exists():
+        try:
+            for line in open(_env_path, encoding="utf-8"):
+                line = line.strip()
+                if line and not line.startswith("#") and "=" in line:
+                    k, v = line.split("=", 1)
+                    os.environ.setdefault(k.strip(), v.strip())
+        except Exception:
+            pass
+        break  # 找到一个就够了
 
 # ── Voice Profiles (from video-language-update-cn-en) ───────
 VOICE_PROFILES = {

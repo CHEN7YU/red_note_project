@@ -1,0 +1,287 @@
+[
+  {
+    "original": {
+      "title": "LPT: Before accepting any internship or entry level job, search the exact role title on LinkedIn and see how long previous people stayed in it.",
+      "score": 587,
+      "num_comments": 23,
+      "subreddit": "LifeProTips",
+      "url": "https://reddit.com/r/LifeProTips/comments/1rio3rr/lpt_before_accepting_any_internship_or_entry/",
+      "created_utc": 1772442805.0,
+      "platform": "reddit",
+      "language": "en",
+      "media_url": "https://www.reddit.com/r/LifeProTips/comments/1rio3rr/lpt_before_accepting_any_internship_or_entry/",
+      "is_video": false,
+      "llm_score": {
+        "info_gap_score": 4,
+        "viral_structure_score": 6,
+        "audience_match_score": 8,
+        "executability_score": 7,
+        "timeliness_score": 7,
+        "total_score": 6.4,
+        "score": 6,
+        "reason": "该话题在中文平台已有类似内容，但多为零散经验分享，缺少系统化和数据驱动的视角，信息差存在但不大。内容结构较好，有一定的好奇心驱动，且符合年轻职场群体关注实习和入职选择的需求，适合做成短视频或图文。整体热度稳定，适合持续输出。",
+        "category": "lifestyle",
+        "content_type": "观点",
+        "emotion": "实用",
+        "suggested_angle": "结合具体行业和岗位数据，教年轻人如何用LinkedIn数据判断实习/入职风险",
+        "risk": "无",
+        "direction": "E2C"
+      }
+    },
+    "rewrite": {
+      "translated_title": "职场小技巧：接受实习或初级职位前，先在LinkedIn查查前人待了多久",
+      "rewritten_titles": [
+        "别傻傻接实习！先上LinkedIn看看别人到底呆了多久？",
+        "实习坑多？看前任在这个岗位待多久，真相让你震惊！",
+        "找实习/入门工作前，这招帮你避坑超实用！"
+      ],
+      "short_script": "哈喽大家好，今天教你们一个超实用的职场小技巧！准备接实习或入门岗位？先别急着签合同！打开LinkedIn，搜一搜这个岗位的名字，看看前面的人都待了多久。如果大家都只呆了几个月，小心这里可能是“跳板”或“磨人地”。反之，呆得久说明岗位稳定，能学到真本事。关注我，带你玩转职场避坑术，别踩雷！",
+      "tags": [
+        "职场小技巧",
+        "实习必看",
+        "避坑指南",
+        "LinkedIn",
+        "职场成长"
+      ],
+      "image_text_content": "很多小伙伴接实习或者入门级工作时都只看职位和薪资，忽略了一个超级关键的点——前人在这岗位待多久！你知道吗？打开LinkedIn，输入你要去的岗位名称，看看历史员工的停留时间，能帮你判断这个职位到底是不是“跳板”或者“磨人地”。\n\n举个例子，如果多数人都只干了1-3个月就离开，很可能这个职位工作强度大或者没什么成长空间。相反，如果大家普遍待了一年以上，说明岗位相对稳定，也更适合积累经验。\n\n所以，下一次找实习或者入门工作，别只盯着薪水和公司名气，先用LinkedIn做个“小侦探”，帮你避坑，找到真正适合自己的好岗位！别忘了点赞关注，更多职场干货等你来拿！"
+    },
+    "script": {
+      "hook": "你知道吗？很多人盲目接实习，结果吃了大亏！",
+      "body": "先别急着答应实习offer，先上LinkedIn看看别人到底待了多久。有些实习看起来很漂亮，但实际上很多人只呆了几周就走了，说明里面可能没那么好。通过观察前辈们的经历，你能更清楚这家公司实习的真实情况，避免踩雷。实习不是随便接的，选对地方才能让简历更有价值，也更有成长空间！",
+      "cta": "你有过不满意的实习经历吗？留言告诉我，或者分享你怎么看待选择实习的标准！",
+      "full_script": "你知道吗？很多人盲目接实习，结果吃了大亏！先别急着答应实习offer，先上LinkedIn看看别人到底待了多久。有些实习看起来很漂亮，但实际上很多人只呆了几周就走了，说明里面可能没那么好。通过观察前辈们的经历，你能更清楚这家公司实习的真实情况，避免踩雷。实习不是随便接的，选对地方才能让简历更有价值，也更有成长空间！你有过不满意的实习经历吗？留言告诉我，或者分享你怎么看待选择实习的标准！",
+      "estimated_duration": 45
+    },
+    "topic_dir": "PROJECT_ROOT\\output\\20260304\\topic_1",
+    "audio_path": "PROJECT_ROOT\\output\\20260304\\topic_1\\audio.mp3",
+    "subtitle_path": "PROJECT_ROOT\\output\\20260304\\topic_1\\subtitle.srt"
+  },
+  {
+    "original": {
+      "title": "LPT: The dumber my productivity system, the better it works",
+      "score": 689,
+      "num_comments": 34,
+      "subreddit": "LifeProTips",
+      "url": "https://reddit.com/r/LifeProTips/comments/1rkg2bs/lpt_the_dumber_my_productivity_system_the_better/",
+      "created_utc": 1772612792.0,
+      "platform": "reddit",
+      "language": "en",
+      "media_url": "https://www.reddit.com/r/LifeProTips/comments/1rkg2bs/lpt_the_dumber_my_productivity_system_the_better/",
+      "is_video": false,
+      "llm_score": {
+        "info_gap_score": 3,
+        "viral_structure_score": 7,
+        "audience_match_score": 6,
+        "executability_score": 7,
+        "timeliness_score": 8,
+        "total_score": 6.3,
+        "score": 6,
+        "reason": "“越简单的生产力系统越有效”这一观点在中文平台已有较多类似内容，信息差不大，但该话题本身具备一定反转和共鸣点，适合做成短视频或图文。整体热度稳定，适合持续输出，但缺乏明显创新。",
+        "category": "lifestyle",
+        "content_type": "观点",
+        "emotion": "共鸣",
+        "suggested_angle": "用简单易行的生产力方法打破复杂工具的迷思",
+        "risk": "信息差较低，内容同质化较严重",
+        "direction": "E2C"
+      }
+    },
+    "rewrite": {
+      "translated_title": "生活小技巧：越简单的效率方法，越管用",
+      "rewritten_titles": [
+        "效率爆棚的秘密，其实超简单！",
+        "效率管理没那么复杂？真相让人大跌眼镜！",
+        "一分钟教你用超简单方法提升工作效率"
+      ],
+      "short_script": "你是不是也被那些复杂的效率工具搞得头大？今天告诉你一个反直觉的秘密——越简单的效率方法，反而越有效！比如，别整天换各种花里胡哨的App，简单的To-Do List和专注时间块，反而让你事半功倍。试试把流程简化，减少选择困难，你会惊讶效率飞起来！觉得有用，点个赞关注我，教你更多实用小技巧！",
+      "tags": [
+        "效率提升",
+        "时间管理",
+        "职场技巧",
+        "简单生活",
+        "自我成长"
+      ],
+      "image_text_content": "大家是不是都有过这样的体验？刚开始信誓旦旦要用各种效率工具和方法，结果弄得头大又没啥效果。其实，越复杂的系统，反而让我们越容易拖延和混乱。为什么？因为复杂的规则和步骤占用了太多脑力，让人反而难以坚持。真正有效的效率秘诀，是把方法简化到最基础的那一步。比如，拿出一张纸，写下今天必须完成的三件事，专注去完成它们。或者用番茄工作法，25分钟专注，5分钟休息，简单又高效。关键就是别纠结于工具和系统的好坏，而是专注执行和保持习惯。效率不是炫技，而是让生活更轻松。你也试试吧，越简单，越能让你事半功倍！"
+    },
+    "script": {
+      "hook": "你知道吗？效率提升的秘密，其实比你想的还简单！",
+      "body": "很多人都觉得提高效率得有超强的工具或者复杂的方法，其实不然。秘诀就是——专注！专注做一件事，设定一个短时间段，比如25分钟，专心不被打扰地完成它，这就是番茄工作法。用了这个方法，你会发现效率瞬间爆棚，心情也更轻松。试试看，给自己定个小目标，专注完成，你会爱上这种感觉！",
+      "cta": "你有没有试过番茄工作法？或者有什么提高效率的小秘诀？评论告诉我吧，我们一起讨论！",
+      "full_script": "你知道吗？效率提升的秘密，其实比你想的还简单！很多人都觉得提高效率得有超强的工具或者复杂的方法，其实不然。秘诀就是——专注！专注做一件事，设定一个短时间段，比如25分钟，专心不被打扰地完成它，这就是番茄工作法。用了这个方法，你会发现效率瞬间爆棚，心情也更轻松。试试看，给自己定个小目标，专注完成，你会爱上这种感觉！你有没有试过番茄工作法？或者有什么提高效率的小秘诀？评论告诉我吧，我们一起讨论！",
+      "estimated_duration": 45
+    },
+    "topic_dir": "PROJECT_ROOT\\output\\20260304\\topic_2",
+    "audio_path": "PROJECT_ROOT\\output\\20260304\\topic_2\\audio.mp3",
+    "subtitle_path": "PROJECT_ROOT\\output\\20260304\\topic_2\\subtitle.srt"
+  },
+  {
+    "original": {
+      "title": "LPT: To curb screen addiction, handwrite on a piece of paper about why you need to open the app.",
+      "score": 260,
+      "num_comments": 28,
+      "subreddit": "LifeProTips",
+      "url": "https://reddit.com/r/LifeProTips/comments/1rjjjpv/lpt_to_curb_screen_addiction_handwrite_on_a_piece/",
+      "created_utc": 1772524872.0,
+      "platform": "reddit",
+      "language": "en",
+      "media_url": "https://www.reddit.com/r/LifeProTips/comments/1rjjjpv/lpt_to_curb_screen_addiction_handwrite_on_a_piece/",
+      "is_video": false,
+      "llm_score": {
+        "info_gap_score": 3,
+        "viral_structure_score": 6,
+        "audience_match_score": 8,
+        "executability_score": 7,
+        "timeliness_score": 7,
+        "total_score": 6.3,
+        "score": 6,
+        "reason": "该话题在中文平台已有不少关于屏幕成瘾及自控方法的内容，信息差不大，但“手写理由”这一具体方法较少被系统介绍，具备一定新意。结构上有一定的好奇心驱动，但缺乏强烈冲突或数字冲击。年轻用户对屏幕使用管理较为关注，内容易于制作且具持续热度。",
+        "category": "lifestyle",
+        "content_type": "工具",
+        "emotion": "实用",
+        "suggested_angle": "结合具体场景展示手写理由如何帮助减少打开APP的冲动",
+        "risk": "无",
+        "direction": "E2C"
+      }
+    },
+    "rewrite": {
+      "translated_title": "经验分享：想戒掉手机瘾？试试写下打开APP的理由",
+      "rewritten_titles": [
+        "秒懂！想甩掉手机控？先写下打开APP的“真心话”！",
+        "有人说写理由没用？其实，这招戒手机瘾超有用！",
+        "戒手机瘾神器！写下打开APP的原因，一分钟帮你断“瘾”"
+      ],
+      "short_script": "大家好，今天教你一招超实用的小技巧！每次想打开某个APP之前，不要直接点开，先拿张纸写下：‘我为什么要打开这个APP？’写完再决定要不要点开。这样能让你冷静几秒，避免无脑刷屏。其实，手机瘾大多是习惯，写下来能帮你意识到自己的真实需求，慢慢就能控制自己啦！喜欢这招就点个关注，帮你和手机做朋友，不被手机“绑架”！",
+      "tags": [
+        "戒手机瘾",
+        "自律打卡",
+        "生活小技巧",
+        "高效生活",
+        "断舍离"
+      ],
+      "image_text_content": "你是不是也经常莫名其妙打开某个APP，结果一刷就是半小时甚至更久？其实，这背后是一种习惯成瘾。今天给大家推荐一个简单但超级有效的小方法：每次想打开APP之前，先拿出一张纸，写下“我为什么要打开这个APP？”\n\n为什么这样做管用？因为写下理由的过程，帮助你冷静下来，重新审视自己的动机——是因为真的需要，还是只是无聊或习惯性地想刷？写完后再决定要不要点开，往往能减少冲动行为。\n\n这个方法操作简单，随时随地都能用，不需要额外工具。坚持一段时间，你会发现自己刷手机的频率明显下降，时间也变得更高效。快试试吧，做个有意识的“手机主人”，不是奴隶！\n\n如果你也有类似的小妙招，或者试了这个方法后有感受，欢迎留言分享，一起成长！"
+    },
+    "script": {
+      "hook": "你知道吗？想戒掉手机控，第一步竟然不是关机！",
+      "body": "很多人每天无意识地打开各种APP，刷到停不下来。其实，想要戒掉手机控，先做个小练习：每次打开APP前，写下自己打开它的“真心话”。比如，是因为无聊？想放松？还是只是习惯性刷刷？把这些真实动机写下来，你会更清楚自己的使用习惯，也更容易找到调整的方法。记住，意识到问题，比强制关机更有效！",
+      "cta": "你打开手机的真心话是什么？留言告诉我吧，我们一起变得更自律！",
+      "full_script": "你知道吗？想戒掉手机控，第一步竟然不是关机！很多人每天无意识地打开各种APP，刷到停不下来。其实，想要戒掉手机控，先做个小练习：每次打开APP前，写下自己打开它的“真心话”。比如，是因为无聊？想放松？还是只是习惯性刷刷？把这些真实动机写下来，你会更清楚自己的使用习惯，也更容易找到调整的方法。记住，意识到问题，比强制关机更有效！你打开手机的真心话是什么？留言告诉我吧，我们一起变得更自律！",
+      "estimated_duration": 45
+    },
+    "topic_dir": "PROJECT_ROOT\\output\\20260304\\topic_3",
+    "audio_path": "PROJECT_ROOT\\output\\20260304\\topic_3\\audio.mp3",
+    "subtitle_path": "PROJECT_ROOT\\output\\20260304\\topic_3\\subtitle.srt"
+  },
+  {
+    "original": {
+      "title": "LPT: When you need to remember something important, don't just add it to your to-do list. Send yourself a message at the exact moment you'll need it.",
+      "score": 360,
+      "num_comments": 29,
+      "subreddit": "LifeProTips",
+      "url": "https://reddit.com/r/LifeProTips/comments/1rj127u/lpt_when_you_need_to_remember_something_important/",
+      "created_utc": 1772476533.0,
+      "platform": "reddit",
+      "language": "en",
+      "media_url": "https://www.reddit.com/r/LifeProTips/comments/1rj127u/lpt_when_you_need_to_remember_something_important/",
+      "is_video": false,
+      "llm_score": {
+        "info_gap_score": 3,
+        "viral_structure_score": 6,
+        "audience_match_score": 7,
+        "executability_score": 8,
+        "timeliness_score": 8,
+        "total_score": 6.3,
+        "score": 6,
+        "reason": "该话题在中文平台已有不少类似提醒类内容，信息差较低，但具体“在需要时刻发消息给自己”的细节形式较少，仍有一定新意。内容结构较为简单，缺少强烈冲突或反转，但实用性较强，符合年轻用户需求。整体适合做短视频或图文，且属于持续性实用话题。",
+        "category": "lifestyle",
+        "content_type": "工具",
+        "emotion": "实用",
+        "suggested_angle": "教你如何用手机消息提醒功能，精准记住重要事项",
+        "risk": "无",
+        "direction": "E2C"
+      }
+    },
+    "rewrite": {
+      "translated_title": "生活小妙招：重要的事别只写待办，最好在需要它的时候给自己发条消息",
+      "rewritten_titles": [
+        "你还在用待办清单记事？试试这个“神仙”方法！",
+        "待办清单真的没用？这样做才不会忘事！",
+        "重要事项不忘记，这招比备忘录还管用！"
+      ],
+      "short_script": "你是不是也有过这样尴尬的时候？明明写了待办清单，结果关键时刻还是忘了！今天教你一个超实用的小技巧——在你需要提醒自己的那个时间点，给自己发条消息！比如，下午3点要打电话，就设定3点整收到的提醒。这样就不会因为拖延或忙乱漏掉重要事啦！快试试这个方法，帮你记得更牢！觉得有用，点赞关注走一波！",
+      "tags": [
+        "生活技巧",
+        "记忆小妙招",
+        "时间管理",
+        "效率提升",
+        "备忘提醒"
+      ],
+      "image_text_content": "大家有没有遇到过这样的情况：本来重要的事情写在了待办清单上，但到了那个时间点却完全忘了？其实，写在待办清单上只是第一步，真正让你不忘事的关键，是在你需要提醒自己的那个时间点，给自己发一条专属消息。举个例子，假设你下午3点要打个重要的电话，不要等到3点才想起，提前设置一个3点准时收到的提醒，这样大脑收到“信号”时才能立刻行动。这个方法比单纯写清单更有效，因为它是基于时间节点触发提醒，让“忘记”成为过去式！如果你平时总是忘事，不妨试试看，帮你提高效率，也减少焦虑感。快把这个小技巧分享给有需要的朋友吧～"
+    },
+    "script": {
+      "hook": "你还在用传统待办清单吗？那你就是错过了一个神仙方法！",
+      "body": "其实，单纯的待办清单容易让人越写越长，反而更焦虑。今天教你用“时间块法”！就是把任务分配到具体时间段里，比如上午9点到10点只做一件事，这样做不仅提高效率，还能减少拖延。关键是你要提前计划好每个时间块，任务清晰又有节奏感，工作起来轻松多了！",
+      "cta": "你试过时间块法吗？或者有什么更好用的高效方法？评论告诉我，咱们一起交流！",
+      "full_script": "你还在用传统待办清单吗？那你就是错过了一个神仙方法！其实，单纯的待办清单容易让人越写越长，反而更焦虑。今天教你用“时间块法”！就是把任务分配到具体时间段里，比如上午9点到10点只做一件事，这样做不仅提高效率，还能减少拖延。关键是你要提前计划好每个时间块，任务清晰又有节奏感，工作起来轻松多了！你试过时间块法吗？或者有什么更好用的高效方法？评论告诉我，咱们一起交流！",
+      "estimated_duration": 45
+    },
+    "topic_dir": "PROJECT_ROOT\\output\\20260304\\topic_4",
+    "audio_path": "PROJECT_ROOT\\output\\20260304\\topic_4\\audio.mp3",
+    "subtitle_path": "PROJECT_ROOT\\output\\20260304\\topic_4\\subtitle.srt"
+  },
+  {
+    "original": {
+      "title": "LPT: When job hunting, pay attention to roles that are constantly advertised.",
+      "score": 2455,
+      "num_comments": 82,
+      "subreddit": "LifeProTips",
+      "url": "https://reddit.com/r/LifeProTips/comments/1rim5bk/lpt_when_job_hunting_pay_attention_to_roles_that/",
+      "created_utc": 1772435459.0,
+      "platform": "reddit",
+      "language": "en",
+      "media_url": "https://www.reddit.com/r/LifeProTips/comments/1rim5bk/lpt_when_job_hunting_pay_attention_to_roles_that/",
+      "is_video": false,
+      "llm_score": {
+        "info_gap_score": 4,
+        "viral_structure_score": 6,
+        "audience_match_score": 7,
+        "executability_score": 7,
+        "timeliness_score": 8,
+        "total_score": 6.3,
+        "score": 6,
+        "reason": "该话题在中文平台已有一定讨论，尤其是职场和求职相关内容丰富，信息差不大，但仍缺少高质量的结构化解读。内容本身具备一定的吸引力和实用性，适合年轻求职者关注，且时效性较强，适合持续输出。整体来看，话题潜力中等偏上。",
+        "category": "society",
+        "content_type": "观点",
+        "emotion": "实用",
+        "suggested_angle": "结合中国职场现状，解析频繁招聘岗位背后的隐含信号",
+        "risk": "无",
+        "direction": "E2C"
+      }
+    },
+    "rewrite": {
+      "translated_title": "当找工作时，注意那些一直在招聘的职位",
+      "rewritten_titles": [
+        "找工作别忽视这个细节，职位一直招人其实暗藏玄机！",
+        "那些永远招不满的岗位，到底隐藏了什么秘密？",
+        "求职必看！常年招聘的岗位，是机会还是陷阱？"
+      ],
+      "short_script": "大家找工作的时候，有没有注意过，有些职位总是“源源不断”地在招？其实这背后有大乾坤！可能是公司发展快，岗位需求多；也可能是这个岗位挑战大，流动率高！所以，看到一直招人的职位，别急着下结论，深入了解再决定。想知道更多职场干货，点个关注，带你玩转职场不踩坑！",
+      "tags": [
+        "职场技巧",
+        "求职攻略",
+        "面试秘籍",
+        "工作经验",
+        "职场成长"
+      ],
+      "image_text_content": "找工作时，你有没有发现有些岗位永远在招聘？这到底是好事还是坏事？其实，这类“常年招人”的职位背后藏着多种可能：一是企业快速扩张，岗位需求自然大；二是岗位本身工作强度高或者压力大，员工流动率高；三是企业招聘策略问题，比如频繁换人导致岗位空缺不断。作为求职者，看到这种职位时，不要只看表面的“职位多”，更要深入了解公司的稳定性、岗位的真实情况和发展前景。提前做好功课，面试时多问问为什么一直招人，避免入坑！掌握这个小技巧，帮你快速锁定靠谱的好岗位，告别频繁跳槽的烦恼。追求高质量的职场生活，从识别“永远招人”的职位开始！"
+    },
+    "script": {
+      "hook": "你有没有发现，有些职位一直招人，永远填不满？这其实藏着职场大秘密！",
+      "body": "其实，职位一直在招人，很多时候不是公司没钱或者缺人，而是隐藏着'坑'。比如，岗位可能工作量超大，离职率高，或者公司管理混乱。简单来说，就是早晚你会接手一堆问题。找工作时，别只看职位名和薪水，看看招聘频率和员工评价，能帮你避坑，还能找到更适合你的好岗位。",
+      "cta": "你遇到过这种一直招人的职位吗？留言告诉我，让我们一起避开职场坑！",
+      "full_script": "你有没有发现，有些职位一直招人，永远填不满？这其实藏着职场大秘密！其实，职位一直在招人，很多时候不是公司没钱或者缺人，而是隐藏着'坑'。比如，岗位可能工作量超大，离职率高，或者公司管理混乱。简单来说，就是早晚你会接手一堆问题。找工作时，别只看职位名和薪水，看看招聘频率和员工评价，能帮你避坑，还能找到更适合你的好岗位。你遇到过这种一直招人的职位吗？留言告诉我，让我们一起避开职场坑！",
+      "estimated_duration": 45
+    },
+    "topic_dir": "PROJECT_ROOT\\output\\20260304\\topic_5",
+    "audio_path": "PROJECT_ROOT\\output\\20260304\\topic_5\\audio.mp3",
+    "subtitle_path": "PROJECT_ROOT\\output\\20260304\\topic_5\\subtitle.srt"
+  }
+]

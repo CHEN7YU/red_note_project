@@ -134,14 +134,12 @@ def cmd_translate(track: str = "tech"):
 def cmd_daily():
     """
     每日一键生成：专注 lifestyle 赛道
-    1. 抓取 Reddit 生活技巧热帖
-    2. LLM 评分筛选 Top 5
-    3. 翻译改写 → 小红书图文 + 抖音视频脚本
-    4. 生成 TTS 配音
-    5. 输出每日report可直接发布
+    输出结构: output/{date}/daily_report.md + topic_N/{xiaohongshu.md, douyin_script.md, audio.mp3, subtitle.srt}
     """
     today = datetime.now().strftime("%Y%m%d")
     track = "lifestyle"
+    day_dir = OUTPUT_DIR / today
+    day_dir.mkdir(parents=True, exist_ok=True)
 
     print("\n" + "=" * 60)
     print(f"📅 每日内容生产 ({today}) — 赛道: 海外生活技巧")
@@ -150,13 +148,11 @@ def cmd_daily():
     # Step 1: 抓取 lifestyle 赛道
     hotspots = cmd_fetch(track)
 
-    # Step 2: 评分 Top 10 → 取 Top 5
+    # Step 2: 评分 Top 15 → 取 Top 5
     all_topics = hotspots.get("west", [])
     valid = [t for t in all_topics if len(t.get("title", "")) > 15]
     print(f"\n📊 LLM 评分 ({len(valid)} 条有效)...")
     scored = batch_score_topics(valid, max_count=15)
-
-    # 只取评分 >= 5 的
     good = [t for t in scored if t.get("llm_score", {}).get("total_score", 0) >= 5.0]
     top5 = good[:5]
 
@@ -180,8 +176,8 @@ def cmd_daily():
             "script": script,
         })
 
-    # Step 4: 生成 TTS 配音（用你自己的声音 clone）
-    print(f"\n🔊 生成配音（你的声音）...")
+    # Step 4: 生成内容文件 + 下载素材 + TTS + 字幕
+    print(f"\n📦 生成内容 + 下载素材 + 配音 + 字幕...")
     try:
         from .tts_azure import tts_clone_voice
         use_clone = True
@@ -189,68 +185,169 @@ def cmd_daily():
         print("  ⚠️ Azure Speech SDK 未安装，降级到 edge-tts")
         use_clone = False
 
+    from .media_downloader import download_reddit_media
+
     for i, item in enumerate(results, 1):
-        script_text = item["script"].get("full_script", "")
+        topic_dir = day_dir / f"topic_{i}"
+        topic_dir.mkdir(parents=True, exist_ok=True)
+        item["topic_dir"] = str(topic_dir)
+
+        print(f"\n── Topic {i} ──")
+
+        # -- 下载原帖素材 --
+        media_dir = topic_dir / "media"
+        media_dir.mkdir(exist_ok=True)
+        print(f"  📥 下载素材...")
+        media_files = download_reddit_media(item["original"], str(media_dir))
+        item["media_files"] = media_files
+
+        # -- 小红书图文 --
+        r = item.get("rewrite", {})
+        xhs_md = []
+        titles = r.get("rewritten_titles", [])
+        xhs_md.append(f"# {titles[0] if titles else '未命名'}\n")
+        xhs_md.append(f"**标题备选：**\n")
+        for t in titles:
+            xhs_md.append(f"- {t}")
+        xhs_md.append(f"\n**标签：** {' '.join('#' + t for t in r.get('tags', []))}\n")
+        xhs_md.append(f"\n---\n")
+        xhs_md.append(r.get("image_text_content", ""))
+        # 配图建议
+        media_sug = r.get("media_suggestions", [])
+        if media_sug:
+            xhs_md.append(f"\n\n---\n**配图建议：**")
+            for ms in media_sug:
+                xhs_md.append(f"- {ms}")
+        # 已下载的素材
+        if media_files:
+            xhs_md.append(f"\n\n**已下载素材（media/ 文件夹）：**")
+            for mf in media_files:
+                xhs_md.append(f"- {Path(mf).name}")
+        with open(topic_dir / "xiaohongshu.md", "w", encoding="utf-8") as f:
+            f.write("\n".join(xhs_md))
+
+        # -- 抖音视频脚本 --
+        s = item.get("script", {})
+        dy_md = []
+        dy_md.append(f"# 抖音视频脚本\n")
+        dy_md.append(f"**开头钩子（前3秒）：** {s.get('hook', '')}\n")
+        dy_md.append(f"\n**正文：**\n{s.get('body', '')}\n")
+        dy_md.append(f"\n**结尾CTA：** {s.get('cta', '')}\n")
+        # 画面提示
+        visual_cues = s.get("visual_cues", [])
+        if visual_cues:
+            dy_md.append(f"\n**画面提示：**")
+            for vc in visual_cues:
+                dy_md.append(f"- {vc}")
+        # 已下载的素材
+        if media_files:
+            dy_md.append(f"\n\n**可用素材（media/ 文件夹）：**")
+            for mf in media_files:
+                dy_md.append(f"- {Path(mf).name}")
+        dy_md.append(f"\n\n---\n")
+        dy_md.append(f"**完整脚本（直接念）：**\n")
+        dy_md.append(s.get("full_script", ""))
+        with open(topic_dir / "douyin_script.md", "w", encoding="utf-8") as f:
+            f.write("\n".join(dy_md))
+
+        # -- 配音 --
+        script_text = s.get("full_script", "")
         if script_text:
-            audio_path = str(OUTPUT_DIR / "audio" / f"daily_{today}_{i}.mp3")
+            audio_path = str(topic_dir / "audio.mp3")
             if use_clone:
                 ok = tts_clone_voice(script_text, audio_path, "zh")
                 if not ok:
-                    # fallback to edge-tts
                     text_to_speech(script_text, audio_path, "zh")
             else:
                 text_to_speech(script_text, audio_path, "zh")
             item["audio_path"] = audio_path
 
-    # Step 5: 保存结果
+            # -- 字幕 SRT --
+            srt_path = str(topic_dir / "subtitle.srt")
+            _generate_srt_from_script(script_text, srt_path)
+            item["subtitle_path"] = srt_path
+
+    # Step 5: 保存 JSON 数据
     json_path = DATA_DIR / f"daily_{today}.json"
     with open(json_path, "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
 
-    # Step 6: 生成可读 Markdown 报告
-    md_path = OUTPUT_DIR / f"daily_{today}.md"
+    # Step 6: 生成总览报告
+    report_path = day_dir / "daily_report.md"
     md = [f"# 📅 每日内容 ({today})\n"]
     md.append(f"> 赛道: 海外生活技巧 | 来源: Reddit | 共 {len(results)} 条\n")
+    md.append(f"\n## 目录结构\n```")
+    md.append(f"output/{today}/")
+    md.append(f"├── daily_report.md          ← 你正在看的")
+    for i in range(1, len(results) + 1):
+        md.append(f"├── topic_{i}/")
+        md.append(f"│   ├── xiaohongshu.md    ← 小红书图文（复制发布）")
+        md.append(f"│   ├── douyin_script.md  ← 抖音脚本")
+        md.append(f"│   ├── audio.mp3         ← 配音（你的声音）")
+        md.append(f"│   └── subtitle.srt      ← 字幕")
+    md.append(f"```\n")
 
     for i, item in enumerate(results, 1):
         o = item["original"]
         r = item.get("rewrite", {})
         s = item.get("script", {})
         sc = o.get("llm_score", {})
+        titles = r.get("rewritten_titles", [""])
 
-        md.append(f"---\n")
-        md.append(f"## 选题 {i}: {r.get('rewritten_titles', [''])[0]}\n")
-        md.append(f"**评分:** {sc.get('total_score', '?')} | **原帖:** [{o['title'][:60]}]({o.get('url', '')})\n")
+        md.append(f"\n---\n")
+        md.append(f"## 选题 {i}: {titles[0]}\n")
+        md.append(f"| 评分 | 信息差 | 爆款 | 受众 | 原帖 |")
+        md.append(f"|---|---|---|---|---|")
+        md.append(f"| **{sc.get('total_score', '?')}** | {sc.get('info_gap_score', '?')} | {sc.get('viral_structure_score', '?')} | {sc.get('audience_match_score', '?')} | [{o['title'][:50]}]({o.get('url', '')}) |\n")
         md.append(f"**建议角度:** {sc.get('suggested_angle', '')}\n")
+        md.append(f"**标题备选:** {' / '.join(titles)}\n")
+        md.append(f"**标签:** {' '.join('#' + t for t in r.get('tags', []))}\n")
+        md.append(f"**视频钩子:** {s.get('hook', '')}\n")
+        md.append(f"\n📂 **文件:** `output/{today}/topic_{i}/`\n")
 
-        md.append(f"\n### 📱 小红书图文\n")
-        titles = r.get("rewritten_titles", [])
-        md.append(f"**标题（选一个）:**\n")
-        for t in titles:
-            md.append(f"- {t}\n")
-        md.append(f"\n**标签:** {' '.join('#' + t for t in r.get('tags', []))}\n")
-        md.append(f"\n**正文:**\n")
-        md.append(f"```\n{r.get('image_text_content', '')}\n```\n")
-
-        md.append(f"\n### 🎬 抖音视频脚本\n")
-        md.append(f"**开头钩子:** {s.get('hook', '')}\n")
-        md.append(f"\n**正文:** {s.get('body', '')}\n")
-        md.append(f"\n**CTA:** {s.get('cta', '')}\n")
-        if item.get("audio_path"):
-            md.append(f"\n**配音文件:** {item['audio_path']}\n")
-        md.append(f"\n")
-
-    with open(md_path, "w", encoding="utf-8") as f:
+    with open(report_path, "w", encoding="utf-8") as f:
         f.write("\n".join(md))
 
     print(f"\n{'=' * 60}")
     print(f"✅ 每日内容生成完成！")
-    print(f"   📄 报告: {md_path}")
-    print(f"   📊 数据: {json_path}")
-    print(f"   🔊 配音: output/audio/daily_{today}_*.mp3")
+    print(f"   📁 输出目录: output/{today}/")
+    print(f"   📄 总览报告: output/{today}/daily_report.md")
+    print(f"   📂 内容文件: output/{today}/topic_1~{len(results)}/")
+    print(f"   📊 数据备份: data/daily_{today}.json")
     print(f"{'=' * 60}")
 
     return results
+
+
+def _generate_srt_from_script(text: str, output_path: str, chars_per_sec: float = 4.5):
+    """从脚本文本生成 SRT 字幕文件（按标点分句，估算时间）"""
+    import re as _re
+    # 按标点分句
+    sentences = _re.split(r'(?<=[。！？.!?\n])\s*', text)
+    sentences = [s.strip() for s in sentences if s.strip() and len(s.strip()) > 1]
+
+    lines = []
+    t = 0.0
+    for i, sent in enumerate(sentences, 1):
+        duration = max(len(sent) / chars_per_sec, 1.5)  # 最短 1.5 秒
+        start = _format_srt_ts(t)
+        end = _format_srt_ts(t + duration)
+        lines.append(f"{i}")
+        lines.append(f"{start} --> {end}")
+        lines.append(sent)
+        lines.append("")
+        t += duration + 0.15  # 句间间隔
+
+    with open(output_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(lines))
+
+
+def _format_srt_ts(seconds: float) -> str:
+    h = int(seconds // 3600)
+    m = int((seconds % 3600) // 60)
+    s = int(seconds % 60)
+    ms = int((seconds - int(seconds)) * 1000)
+    return f"{h:02d}:{m:02d}:{s:02d},{ms:03d}"
 
 
 def cmd_video(url: str):

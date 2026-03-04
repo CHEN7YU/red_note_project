@@ -226,33 +226,38 @@ def translate_and_rewrite(
     target_lang: str = "zh",
 ) -> dict:
     """
-    翻译 + 本土化改写 + 生成多个标题方向。
-    返回 {translated_title, rewritten_titles: [...], short_script, tags: [...]}
+    翻译 + 本土化改写 + 生成干货内容（v2: 具体步骤+案例+数据）
     """
     src = "英文" if source_lang == "en" else "中文"
     tgt = "中文" if target_lang == "zh" else "英文"
     platform = "小红书/抖音" if target_lang == "zh" else "TikTok/YouTube Shorts"
 
-    prompt = f"""你是一个资深跨文化社交媒体内容创作者。
+    prompt = f"""你是一个在{platform}上有50万粉丝的知识博主，擅长把海外信息差内容做成爆款。
 
-请将以下{src}热点内容改写为适合{platform}发布的{tgt}版本。
+原始话题（{src}）：{title}
+{"补充背景：" + context if context else ""}
 
-原标题：{title}
-{"背景信息：" + context if context else ""}
+请改写为{tgt}版本。
 
-要求：
-1. 不是直译，而是本土化改写，让{tgt}读者觉得自然有趣
-2. 融入{platform}平台的表达风格和流行用语
-3. 保留核心信息差价值
+⚠️ 关键要求（必须遵守，否则内容会很水）：
+1. **具体 > 笼统**：不要说"要注意XXX"，要说"第一步打开XX，第二步搜索XX，你会看到XX"
+2. **举例 > 道理**：必须包含至少1个具体案例/场景/数字，不能全是空话
+3. **步骤化**：正文必须有清晰的1/2/3步骤或要点，读者一眼能扫到重点
+4. **标题不要震惊体**：不用"惊了""竟然"，用具体信息+好奇心缺口，例如"面试前我都会打开LinkedIn做这一步"
+5. **像朋友分享经验**，不像营销号讲道理
 
 请返回 JSON（不要 markdown 代码块）：
 {{
     "translated_title": "直译标题",
-    "rewritten_titles": ["改写标题1（钩子型）", "改写标题2（争议型）", "改写标题3（实用型）"],
-    "short_script": "60秒短视频脚本（口语化，包含开头钩子、正文、结尾CTA，不超过200字）",
+    "rewritten_titles": [
+        "标题1（分享型：像朋友分享经验，例如'我每次面试前都会做这一步'）",
+        "标题2（数字型：包含具体数字，例如'用这3步帮你省下80%时间'）",
+        "标题3（教程型：像教程标题，例如'手把手教你用LinkedIn避坑'）"
+    ],
     "tags": ["标签1", "标签2", "标签3", "标签4", "标签5"],
-    "image_text_content": "图文帖正文（300-500字，适合{platform}图文格式）"
-}}"""
+    "image_text_content": "小红书图文正文（400-600字），要求：\\n- 必须包含具体操作步骤（用①②③编号）\\n- 必须举至少1个真实案例/场景\\n- 必须有可操作的结论\\n- 像朋友聊天的语气，不要像营销号\\n- 结尾引导互动",
+    "media_suggestions": ["建议配图1的描述（例如：LinkedIn搜索结果截图）", "建议配图2", "建议配图3"]
+}}\n\n注意：image_text_content 是最关键的输出，必须干货满满，读者看完能立即行动。""""""
 
     try:
         result = _chat(
@@ -288,32 +293,31 @@ def generate_video_script(
     duration_seconds: int = 45,
 ) -> dict:
     """
-    生成短视频脚本。
-    返回 {hook, body, cta, full_script, estimated_duration}
+    生成短视频脚本（v2: 教程式，有步骤，干货优先）
     """
     lang = "中文" if language == "zh" else "English"
     platform = "抖音/小红书" if language == "zh" else "TikTok/YouTube Shorts"
 
-    prompt = f"""你是一个{platform}短视频脚本专家。
-
-请为以下话题生成一个{duration_seconds}秒的短视频口播脚本（{lang}）。
+    prompt = f"""你是一个{platform}上的知识博主，视频风格是"像朋友教你一个技巧"。
 
 话题：{title}
 {"背景：" + context if context else ""}
 
-脚本结构要求：
-- 开头钩子（前3秒必须抓住注意力）
-- 正文（核心信息，口语化）
-- 结尾CTA（引导互动）
+请生成一个{duration_seconds}秒的短视频脚本（{lang}），要求：
+1. **前3秒必须制造好奇心缺口**（不要用"你知道吗"这种老套开头，用具体场景或问题）
+2. **正文必须有步骤**：第一步XX，第二步XX，像在手把手教
+3. **必须举一个具体例子**：用真实场景或数据说明效果
+4. **不要讲道理，要讲方法**
+5. **像对面坐着朋友在聊天**，不要播音腔
 
 请返回 JSON（不要 markdown 代码块）：
 {{
-    "hook": "开头钩子（1-2句话）",
-    "body": "正文内容",
-    "cta": "结尾引导语",
-    "full_script": "完整脚本（直接可以念的口播文本）",
-    "estimated_duration": {duration_seconds}
-}}"""
+    "hook": "开头钩子（具体场景开头，例如：'上次面试前我做了这一步，直接避开了一个巨坑'）",
+    "body": "正文（必须包含具体步骤和案例）",
+    "cta": "结尾（引导评论互动，例如：'你试过这招吗？评论区聊聊'）",
+    "full_script": "完整可直接念的脚本（含钩子+正文+CTA，控制在{duration_seconds}秒内）",
+    "visual_cues": ["画面提示1（例如：此时展示LinkedIn搜索画面）", "画面提示2", "画面提示3"]
+}}""""""
 
     try:
         result = _chat(
