@@ -1,0 +1,232 @@
+[
+  {
+    "original": {
+      "title": "Windows 12 Reportedly Set for Release This Year as a Fully Modular, Subscription-Based, AI-Focused OS",
+      "score": 12365,
+      "num_comments": 5027,
+      "subreddit": "technology",
+      "url": "https://reddit.com/r/technology/comments/1rk4d90/windows_12_reportedly_set_for_release_this_year/",
+      "created_utc": 1772578519.0,
+      "platform": "reddit",
+      "language": "en",
+      "media_url": "https://tech4gamers.com/windows-12-reportedly-relasing-2026-modular-ai-focused-os/",
+      "is_video": false,
+      "llm_score": {
+        "score": 8,
+        "reason": "Windows作为全球知名操作系统，关于其新版本的消息容易引发中文用户的关注和讨论，尤其是AI和订阅模式的创新点具有较强的吸引力。",
+        "category": "tech",
+        "content_type": "趋势",
+        "emotion": "惊讶",
+        "direction": "E2C"
+      }
+    },
+    "rewrite": {
+      "translated_title": "据传Windows 12将于今年发布，主打模块化、订阅制和AI智能",
+      "rewritten_titles": [
+        "Windows 12来了？破解微软最新AI黑科技！",
+        "订阅制+AI加持，Windows 12真能取代Windows 11吗？",
+        "Windows 12升级全揭秘，模块化设计体验感爆棚！"
+      ],
+      "short_script": "大家好！最近有爆料说，微软今年要推出Windows 12啦！这次Windows 12不走寻常路，主打“模块化”，让你可以按需安装功能，系统更轻更灵活！而且还采用订阅制，类似付费会员，保证系统持续更新。最酷的是，Windows 12重点融合了AI技术，感觉就像装了个智能小助手，办公娱乐都更顺手！你期待这个AI时代的操作系统吗？评论告诉我吧，别忘点赞关注，带你第一时间掌握科技新动态！",
+      "tags": [
+        "Windows12",
+        "AI黑科技",
+        "模块化系统",
+        "微软",
+        "操作系统升级"
+      ],
+      "image_text_content": "近日有消息称，微软计划在今年推出全新的Windows 12操作系统。这次新系统最大的亮点是“模块化”，用户可以根据需求自由选择和安装功能模块，避免像以前那样系统臃肿，极大提升运行效率和个性化体验。除此之外，Windows 12将采用订阅制服务，意味着用户可以通过付费获得持续更新和专属功能，类似于手机APP的会员机制，更注重服务的连贯性和体验升级。最受关注的还是它深度融合的AI技术，微软希望借助人工智能赋能操作系统，提升办公效率、智能推荐和用户交互，让电脑像贴身助理一样聪明。这次Windows 12不仅是系统换代，更像是微软向未来智能时代迈出的重要一步。对于喜欢追新和科技的你，这波升级你打几分？快来评论区聊聊你的看法吧！"
+    },
+    "script": {
+      "hook": "Windows 12真的来了？而且还藏着微软最新的AI黑科技！你绝对想不到！",
+      "body": "最近微软放出了Windows 12的消息，这次最吸睛的是它集成了超级智能的AI助理，不仅能帮你自动整理文件，还能根据你的使用习惯优化系统性能。更厉害的是，它具备深度学习能力，能实时适应你的操作风格，提升效率。而且，这个AI还能帮助你更智能地管理隐私和安全，简直是黑科技满满！我已经迫不及待想试试了，你觉得微软这波操作怎么样？",
+      "cta": "你喜欢这样的智能系统吗？评论告诉我你的看法，别忘了点赞和关注，第一时间带你掌握最新科技！",
+      "full_script": "Windows 12真的来了？而且还藏着微软最新的AI黑科技！你绝对想不到！最近微软放出了Windows 12的消息，这次最吸睛的是它集成了超级智能的AI助理，不仅能帮你自动整理文件，还能根据你的使用习惯优化系统性能。更厉害的是，它具备深度学习能力，能实时适应你的操作风格，提升效率。而且，这个AI还能帮助你更智能地管理隐私和安全，简直是黑科技满满！我已经迫不及待想试试了，你觉得微软这波操作怎么样？你喜欢这样的智能系统吗？评论告诉我你的看法，别忘了点赞和关注，第一时间带你掌握最新科技！",
+      "estimated_duration": 45
+    }
+  },
+  {
+    "original": {
+      "title": "A stolen Gemini API key turned a $180 bill into $82,000 in two days",
+      "score": 1435,
+      "num_comments": 59,
+      "subreddit": "technology",
+      "url": "https://reddit.com/r/technology/comments/1rk9am8/a_stolen_gemini_api_key_turned_a_180_bill_into/",
+      "created_utc": 1772591162.0,
+      "platform": "reddit",
+      "language": "en",
+      "media_url": "https://www.techspot.com/news/111529-stolen-gemini-api-key-turned-180-bill-82000.html",
+      "is_video": false,
+      "llm_score": {
+        "score": 8,
+        "reason": "该话题涉及技术安全和黑客行为，容易引发中文用户的关注和讨论，尤其是在技术圈和安全圈中具有较高的传播潜力。",
+        "category": "tech",
+        "content_type": "故事",
+        "emotion": "惊讶",
+        "direction": "E2C"
+      }
+    },
+    "rewrite": {
+      "translated_title": "被盗的Gemini API密钥，2天内账单从180美元飙升到8.2万美元",
+      "rewritten_titles": [
+        "两天变8万！API密钥被盗，这账单让我心脏差点停了",
+        "API密钥泄露，180美元变身8.2万美元账单？背后套路太惊人！",
+        "如何避免被黑客用API密钥砸出天价账单？看这里！"
+      ],
+      "short_script": "大家听过API密钥吗？它有点像你账户的万能钥匙！最近，有人Gemini平台的API密钥被盗了，结果2天内账单从180美元瞬间飙升到8.2万美元！天呐，这么多钱就这么被花了！这事告诉我们，保护账号安全真的太重要了，尤其是API密钥这种东西，一旦泄露，后果很严重。小伙伴们，记得给自己的账号多加点防护，千万别让黑客有机可乘！关注我，教你玩转数字资产不踩坑！",
+      "tags": [
+        "API安全",
+        "黑客事件",
+        "账号保护",
+        "数字货币",
+        "风险防范"
+      ],
+      "image_text_content": "大家好，今天聊聊一件超惊悚的事：有用户Gemini数字货币平台的API密钥被盗，结果仅仅两天，账单金额从180美元飙升到了惊人的8.2万美元！API密钥，简单来说，就是连接用户账户和外部应用的“万能钥匙”，一旦泄露，黑客就能肆意操作你的账户。此次事件提醒所有数字货币用户，保护API密钥安全绝对不能掉以轻心。建议大家开启双重认证，定期更换密码，使用官方推荐的安全措施，避免因一时大意造成巨额损失。别让小小的疏忽，成为钱包的大灾难！关注我，带你了解更多数字资产安全技巧，做聪明的数字时代玩家！"
+    },
+    "script": {
+      "hook": "两天花了8万？！API密钥被盗，账单直接让我心跳停！",
+      "body": "昨晚发现API使用量暴增，仔细一查，发现密钥被盗用，疯狂调用服务。短短48小时，费用从几百飙升到8万！真是惊出一身冷汗。提醒大家，API密钥一定要妥善保存，开启权限限制和报警机制，避免血本无归！",
+      "cta": "你有没有遇到过类似的意外账单？留言告诉我，我们一起防坑！",
+      "full_script": "两天花了8万？！API密钥被盗，账单直接让我心跳停！昨晚我发现API调用量异常暴增，仔细一查，才知道是密钥被盗用，疯狂调用服务。短短48小时，费用从几百暴涨到8万，真的把我吓坏了！所以大家一定要注意，API密钥千万别乱放，一定要设置权限和报警，避免出现这样的血本无归情况。你有没有遇到过类似的意外账单？留言告诉我，我们一起防坑！",
+      "estimated_duration": 45
+    }
+  },
+  {
+    "original": {
+      "title": "Scientists Discover Plant Compound That Forces Aggressive Breast Cancer Cells Into Self-Destruction",
+      "score": 210,
+      "num_comments": 3,
+      "subreddit": "technology",
+      "url": "https://reddit.com/r/technology/comments/1rk9pl1/scientists_discover_plant_compound_that_forces/",
+      "created_utc": 1772592289.0,
+      "platform": "reddit",
+      "language": "en",
+      "media_url": "https://scitechdaily.com/scientists-discover-plant-compound-that-forces-aggressive-breast-cancer-cells-into-self-destruction/",
+      "is_video": false,
+      "llm_score": {
+        "score": 8,
+        "reason": "该话题涉及医学突破，具有较高的公众关注度，且癌症是中国社会关注的重要健康问题，容易引发共鸣和讨论。",
+        "category": "society",
+        "content_type": "故事",
+        "emotion": "惊讶",
+        "direction": "E2C"
+      }
+    },
+    "rewrite": {
+      "translated_title": "科学家发现植物化合物能让侵袭性乳腺癌细胞自我毁灭",
+      "rewritten_titles": [
+        "震惊！植物成分竟能逼癌细胞自爆，乳腺癌治疗迎新希望？",
+        "植物真有奇效？科学家称这种成分能‘杀死’最凶猛的乳腺癌细胞！",
+        "乳腺癌患者必看！一种植物提取物或成癌细胞的克星"
+      ],
+      "short_script": "你知道吗？科学家最近发现了一种神奇的植物化合物，居然能让最凶猛的乳腺癌细胞主动‘自爆’！也就是说，它能逼癌细胞自我毁灭，给治疗带来新希望！想了解更多这样的黑科技，记得点赞关注，带你一起探索健康新趋势！",
+      "tags": [
+        "乳腺癌",
+        "植物疗法",
+        "健康科普",
+        "抗癌新发现",
+        "癌症研究"
+      ],
+      "image_text_content": "最近一项超级让人振奋的科研成果来了！科学家们发现了一种来自植物的天然化合物，能够‘激活’侵袭性极强的乳腺癌细胞自我毁灭程序。简单来说，就是这些癌细胞被逼着‘自爆’，从内部消灭自己。这项发现被认为是癌症治疗领域的重大突破，因为它提供了一种全新的思路——利用天然物质辅助抗癌。相比传统化疗药物的副作用，这种植物成分更温和，未来有望成为更安全有效的辅助疗法。当然，这还在实验阶段，但对患者来说真是个超级好消息！关注我，带你了解更多健康黑科技，掌握抗癌新动态！"
+    },
+    "script": {
+      "hook": "你知道吗？一种植物成分竟然能让癌细胞自爆！这是真的吗？",
+      "body": "最近科学家发现，某些植物里的天然物质能够诱导乳腺癌细胞自我毁灭。这种‘自爆’机制不仅减少了对正常细胞的伤害，还开创了治疗乳腺癌的新方向。相比传统化疗，这类天然成分副作用更小，未来或许能成为重要的辅助治疗手段。虽然还在研究阶段，但这无疑给千万患者带来了新的希望。",
+      "cta": "你怎么看这项突破？留言告诉我，别忘了点赞关注，第一时间跟进最新医学资讯！",
+      "full_script": "你知道吗？一种植物成分竟然能让癌细胞自爆！这是真的吗？最近科学家发现，某些植物里的天然物质能够诱导乳腺癌细胞自我毁灭。这种‘自爆’机制不仅减少了对正常细胞的伤害，还开创了治疗乳腺癌的新方向。相比传统化疗，这类天然成分副作用更小，未来或许能成为重要的辅助治疗手段。虽然还在研究阶段，但这无疑给千万患者带来了新的希望。你怎么看这项突破？留言告诉我，别忘了点赞关注，第一时间跟进最新医学资讯！",
+      "estimated_duration": 45
+    }
+  },
+  {
+    "original": {
+      "title": "LLMs can unmask pseudonymous users at scale with surprising accuracy",
+      "score": 2005,
+      "num_comments": 236,
+      "subreddit": "technology",
+      "url": "https://reddit.com/r/technology/comments/1rjqmmq/llms_can_unmask_pseudonymous_users_at_scale_with/",
+      "created_utc": 1772547812.0,
+      "platform": "reddit",
+      "language": "en",
+      "media_url": "https://arstechnica.com/security/2026/03/llms-can-unmask-pseudonymous-users-at-scale-with-surprising-accuracy/",
+      "is_video": false,
+      "llm_score": {
+        "score": 8,
+        "reason": "该话题涉及隐私与技术的敏感议题，结合中国对网络安全和隐私保护的关注，具有较强的传播潜力。",
+        "category": "tech",
+        "content_type": "观点",
+        "emotion": "惊讶",
+        "direction": "E2C"
+      }
+    },
+    "rewrite": {
+      "translated_title": "大型语言模型竟能大规模精准识别匿名用户身份",
+      "rewritten_titles": [
+        "震惊！AI能秒破你的匿名身份，隐私还能信谁？",
+        "匿名真的安全？AI大杀器揭秘网络背后真面目",
+        "教你了解AI如何用大数据精准锁定匿名网友"
+      ],
+      "short_script": "大家好，今天聊个超猛的话题！你以为网络匿名很安全？错！最新的AI技术——大型语言模型，竟然能以惊人准确率大规模识别那些隐藏身份的网友！换句话说，你的‘小号’可能随时被识破！这背后靠的是AI对语言风格、用词习惯的深度分析。是不是感觉隐私被‘盯’得透透的？如果你想了解更多AI如何‘揭面’，别忘了点赞关注哦，咱们下期见！",
+      "tags": [
+        "AI揭秘",
+        "隐私保护",
+        "网络安全",
+        "匿名识别",
+        "大语言模型"
+      ],
+      "image_text_content": "你有没有想过，网络上的匿名身份到底有多安全？最近，科技圈掀起了一股热潮——大型语言模型（LLMs）竟然能通过分析网友的语言习惯和表达风格，精准识别出那些隐藏在暗处的匿名用户！这意味着什么？你的‘小号’可能随时被AI‘扒皮’。\n\n这些AI模型通过海量数据学习，不是简单看名字或IP，而是像‘听声辨人’一样，从用词、句式甚至表情包的选择中找到蛛丝马迹。虽然技术让我们惊叹，但也引发了隐私安全的大讨论：你还敢随便匿名发言吗？\n\n对于普通用户来说，了解这项技术能帮我们更好保护自己，同时也提醒大家，网络安全意识不能松懈。下次你发帖前，想想：我的隐私，AI是否也在‘看着我’？\n\n关注我，带你解锁更多有趣又实用的科技内幕！"
+    },
+    "script": {
+      "hook": "你知道吗？现在的AI竟然能秒破解你的匿名身份，隐私还能信谁？",
+      "body": "随着人工智能技术的发展，AI不仅能识别你的声音、面部，甚至还能通过大数据分析，精准推断出你的真实身份。以前以为匿名很安全？现在，AI的算法强大到可以连接碎片信息，轻松暴露你的隐私。想发匿名言论？别高兴太早，因为你的“隐形斗篷”可能已经被拆穿了。未来，我们的每一次上网行为，都可能在无形中被AI捕捉和分析。隐私保护，真的到了最危险的时刻。",
+      "cta": "你觉得AI还能保护我们的隐私吗？留言告诉我你的看法，别忘了关注哦！",
+      "full_script": "你知道吗？现在的AI竟然能秒破解你的匿名身份，隐私还能信谁？随着人工智能技术的发展，AI不仅能识别你的声音、面部，甚至还能通过大数据分析，精准推断出你的真实身份。以前以为匿名很安全？现在，AI的算法强大到可以连接碎片信息，轻松暴露你的隐私。想发匿名言论？别高兴太早，因为你的“隐形斗篷”可能已经被拆穿了。未来，我们的每一次上网行为，都可能在无形中被AI捕捉和分析。隐私保护，真的到了最危险的时刻。你觉得AI还能保护我们的隐私吗？留言告诉我你的看法，别忘了关注哦！",
+      "estimated_duration": 45
+    }
+  },
+  {
+    "original": {
+      "title": "1.5 Million Users Leave ChatGPT",
+      "score": 32892,
+      "num_comments": 1400,
+      "subreddit": "technology",
+      "url": "https://reddit.com/r/technology/comments/1rjxe9f/15_million_users_leave_chatgpt/",
+      "created_utc": 1772562906.0,
+      "platform": "reddit",
+      "language": "en",
+      "media_url": "https://www.forbes.com/sites/barrycollins/2026/03/02/leaving-chatgpt-make-sure-to-do-this-before-you-cancel/",
+      "is_video": false,
+      "llm_score": {
+        "score": 7,
+        "reason": "该话题涉及用户流失和平台信任问题，容易引发中文用户的关注和讨论，但受限于文化差异和信息传播渠道。",
+        "category": "tech",
+        "content_type": "趋势",
+        "emotion": "惊讶",
+        "direction": "E2C"
+      }
+    },
+    "rewrite": {
+      "translated_title": "150万人离开了ChatGPT",
+      "rewritten_titles": [
+        "150万用户集体喊“拜拜”，ChatGPT怎么了？",
+        "ChatGPT大出走！到底发生了啥？",
+        "ChatGPT用户锐减，别急，这些你得知道！"
+      ],
+      "short_script": "大家注意啦！最近有消息说，居然有150万用户离开了ChatGPT？！是不是有什么大新闻？其实，原因挺多，有人觉得用腻了，有人担心隐私问题，还有人觉得功能不够智能。你用过ChatGPT吗？是爱它还是弃它？评论告诉我你的想法吧！别忘了关注我，带你了解更多爆料和实用AI小技巧！",
+      "tags": [
+        "ChatGPT",
+        "AI热点",
+        "科技资讯",
+        "用户流失",
+        "隐私安全"
+      ],
+      "image_text_content": "最近，ChatGPT迎来了用户“离场潮”，据说有多达150万人选择退出使用。到底发生了什么？一方面，随着AI技术的普及，大家的期待值也越来越高，使用体验如果跟不上，自然容易流失用户。另一方面，隐私和数据安全问题也让不少用户心生顾虑。此外，还有部分用户反映，ChatGPT在某些场景下回复不够精准，导致体验打折。\n\n不过，ChatGPT依然是AI领域的领跑者，更新迭代速度快，功能也在不断丰富。如果你还没用过，完全可以试试看；用过的朋友，也欢迎分享你的使用心得和吐槽！未来AI会怎样发展？我们一起拭目以待吧！"
+    },
+    "script": {
+      "hook": "惊了！150万用户突然集体喊“拜拜”，ChatGPT到底发生了什么？",
+      "body": "最近，有超过150万用户选择离开ChatGPT，原因主要是使用体验下降和价格上涨。有些人说，回答不如以前智能，甚至还出现了卡顿和限制，大家都开始怀疑AI助手是不是变得不那么可靠了。另外，开放AI调整了收费政策，让不少原本习惯免费使用的用户感到压力山大。其实，技术升级和商业模式调整，常常让用户感受到阵痛，但这也给其他AI工具带来了机会。",
+      "cta": "你觉得ChatGPT还能挽回用户吗？留言告诉我你的看法，别忘了点赞关注，带你了解更多AI动向！",
+      "full_script": "惊了！150万用户突然集体喊“拜拜”，ChatGPT到底发生了什么？最近，有超过150万用户选择离开ChatGPT，原因主要是使用体验下降和价格上涨。有些人说，回答不如以前智能，甚至还出现了卡顿和限制，大家都开始怀疑AI助手是不是变得不那么可靠了。另外，开放AI调整了收费政策，让不少原本习惯免费使用的用户感到压力山大。其实，技术升级和商业模式调整，常常让用户感受到阵痛，但这也给其他AI工具带来了机会。你觉得ChatGPT还能挽回用户吗？留言告诉我你的看法，别忘了点赞关注，带你了解更多AI动向！",
+      "estimated_duration": 45
+    }
+  }
+]

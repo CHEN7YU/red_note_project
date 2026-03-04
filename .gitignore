@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Cache & temp
+.cache/
+output/videos/downloads/
+output/_*.txt
+*.tmp
+
+# Secrets (never commit)
+.env
+*.key
+client_secrets.json
