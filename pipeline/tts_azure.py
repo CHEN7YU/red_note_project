@@ -32,25 +32,22 @@ for _env_path in _env_paths:
             pass
         break  # 找到一个就够了
 
-# ── Voice Profiles (from video-language-update-cn-en) ───────
+# ── Voice Profiles (from env or defaults) ───────
 VOICE_PROFILES = {
     "zh": {
-        "speaker_profile_id": "REDACTED_SPEAKER_ZH",
+        "speaker_profile_id": os.environ.get("TTS_SPEAKER_ZH", ""),
         "carrier_voice": "zh-CN-Yunqi:DragonHDOmniLatestNeural",
     },
     "en": {
-        "speaker_profile_id": "REDACTED_SPEAKER_EN",
+        "speaker_profile_id": os.environ.get("TTS_SPEAKER_EN", ""),
         "carrier_voice": "en-US-Andrew:DragonHDLatestNeural",
     },
 }
 
-# Azure Speech config — reuse from the other project's .env or env vars
+# Azure Speech config
 SPEECH_KEY = os.environ.get("AZURE_SPEECH_KEY", "")
 SPEECH_REGION = os.environ.get("AZURE_SPEECH_REGION", "eastus")
-SPEECH_RESOURCE_ID = os.environ.get(
-    "AZURE_SPEECH_RESOURCE_ID",
-    "/subscriptions/REDACTED_SUBSCRIPTION_ID/resourceGroups/REDACTED_RG/providers/Microsoft.CognitiveServices/accounts/REDACTED_SPEECH_RESOURCE",
-)
+SPEECH_RESOURCE_ID = os.environ.get("AZURE_SPEECH_RESOURCE_ID", "")
 
 
 def _get_aad_token(resource="https://cognitiveservices.azure.com"):
