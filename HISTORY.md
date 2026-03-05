@@ -23,8 +23,8 @@
 | 功能 | 状态 | 说明 |
 |---|---|---|
 | **pipeline/ 模块化架构** | ✅ 生产中 | config / fetcher / llm / video_processor / run / tts_azure / media_downloader / publisher_x |
-| **Azure OpenAI (GPT-4.1-mini/nano)** | ✅ 生产中 | REDACTED_AOAI_RESOURCE, eastus, Azure AD 认证 |
-| **Azure 预算 $200/月** | ✅ 生效 | REDACTED_BUDGET，50/80/100% 告警 |
+| **Azure OpenAI (GPT-4.1-mini/nano)** | ✅ 生产中 | (redacted), eastus, Azure AD 认证 |
+| **Azure 预算 $200/月** | ✅ 生效 | (redacted)，50/80/100% 告警 |
 | **Reddit 热点抓取** | ✅ 稳定 | ~1200 帖/次，覆盖 60+ subreddits |
 | **微博热搜抓取** | ✅ 稳定 | weibo.com/ajax/side/hotSearch |
 | **百度热搜抓取** | ✅ 稳定 | top.baidu.com HTML 解析 |

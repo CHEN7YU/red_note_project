@@ -31,6 +31,9 @@ output/*/
 output/*.md
 output/_*.txt
 
+# Generated data (contains local paths; regenerate via pipeline)
+data/daily_*.json
+
 # Secrets (never commit)
 .env
 *.key

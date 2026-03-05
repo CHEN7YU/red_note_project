@@ -590,9 +590,9 @@ python -m pipeline video <url>         # Step 4 (单个视频)
 | 晚间 | edge-tts 英文语音测试 | ✅ 26KB mp3 | en-US-AriaNeural 声音自然 |
 | 晚间 | FFmpeg 重编码去重测试 | ✅ 成功 | 输入 8129B → 输出 7936B，二进制指纹不同 |
 | 晚间 | yt-dlp 视频下载 | ✅ 模块就绪 | Python API 模式，支持 1000+ 平台 |
-| 03-04 | 创建 Azure RG | ✅ 完成 | REDACTED_RG, eastus |
-| 03-04 | 设置 $200/月预算 | ✅ 完成 | REDACTED_BUDGET, 50%/80%/100% 告警通知 Owner |
-| 03-04 | 创建 Azure OpenAI 资源 | ✅ 完成 | REDACTED_AOAI_RESOURCE, eastus, S0 |
+| 03-04 | 创建 Azure RG | ✅ 完成 | (redacted), eastus |
+| 03-04 | 设置 $200/月预算 | ✅ 完成 | (redacted), 50%/80%/100% 告警通知 Owner |
+| 03-04 | 创建 Azure OpenAI 资源 | ✅ 完成 | (redacted), eastus, S0 |
 | 03-04 | 部署 GPT-4.1-mini | ✅ Succeeded | 部署名: gpt-4-1-mini, GlobalStandard, capacity=10 |
 | 03-04 | 部署 GPT-4.1-nano | ✅ Succeeded | 部署名: gpt-4-1-nano, GlobalStandard, capacity=10 |
 | 03-04 | Azure AD 认证 | ✅ 完成 | Key auth 被订阅策略禁用，改用 DefaultAzureCredential + Cognitive Services OpenAI User 角色 |
@@ -608,7 +608,7 @@ python -m pipeline video <url>         # Step 4 (单个视频)
 | 03-04 | 新增 4 中文数据源 | 🔶 部分完成 | B站 ✅(50条), 知乎/抖音/小红书 ⚠️(第三方 API 不稳) |
 | 03-04 | LLM 批量分类 CN 话题 | ✅ 完成 | 一次 nano 调用分类全部中文话题到赛道，解决 CN→EN 赛道重叠问题 |
 | 03-04 | 数据源可用性总结 | 📊 | 稳定: Reddit/微博/百度/B站/X; 不稳: tophub(403)/vvhan(DNS)/oioweb(502) |
-| 待做 | Azure OpenAI 环境变量配置 | ✅ 已改为 Azure AD | AZURE_OPENAI_ENDPOINT=https://REDACTED.openai.azure.com/ |
+| 待做 | Azure OpenAI 环境变量配置 | ✅ 已改为 Azure AD | AZURE_OPENAI_ENDPOINT=(set via env var) |
 | 待做 | LLM 评分/翻译改写测试 | ✅ 已完成 | GPT-4.1-mini / nano |
 | 待做 | 完整视频处理管线 E2E 测试 | ⏳ 待验证 | 下载→去水印→识别→改写→TTS→字幕→合成 |
 | 待做 | TikTok 开发者账号申请 | ⏳ 未开始 | 需申请 Content Posting API 审核 |
