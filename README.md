@@ -69,3 +69,10 @@
 | 1 | 哈尔滨冬泳极限挑战 | ⭐⭐⭐⭐⭐ | TikTok/Instagram |
 | 2 | 1000张扑克牌做滑板（391万播放） | ⭐⭐⭐⭐⭐ | TikTok |
 | 3 | 万岁山武侠城春节沉浸式体验 | ⭐⭐⭐⭐ | TikTok/YouTube |
+
+---
+
+## Legal
+
+- [Terms of Service](terms.html)
+- [Privacy Policy](privacy.html)
